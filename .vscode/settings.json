@@ -2,5 +2,23 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
-  "python.formatting.provider": "none"
+  "python.formatting.provider": "none",
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.panelActiveFile",
+      "label": "Panel: Run Active File",
+      "description": "Panel run active file in active terminal",
+      "sequence": [
+        "workbench.action.terminal.focus",
+        {
+          "command": "workbench.action.terminal.sendSequence",
+          "args": {
+            "text": "python -m panel serve '${relativeFile}' --dev --show\u000D"
+          }
+        }
+      ]
+    }
+  ],
+  "jupyter.disableJupyterAutoStart": true,
+  "jupyter.interactiveWindow.cellMarker.decorateCells": "allCells"
 }
